@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analisador Visual de Estilo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Noto+Emoji:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="card card-entrance" id="app">
+  <div style="text-align:center;margin-bottom:6px;">
+    <span style="font-size:1.6rem;display:inline-block;animation:float 3s ease-in-out infinite;">🎨</span>
+  </div>
+  <h2 style="text-align:center;font-weight:600;margin:0 0 4px;font-size:1.35rem;" class="blur-in">Analisador Visual</h2>
+  <p style="text-align:center;color:var(--text-sub);font-size:0.9rem;margin:0 0 24px;animation-delay:0.12s;" class="blur-in">Descubra suas cores e seu estilo</p>
+
+  <!-- ===== SECTION 1: INTRO ===== -->
+  <div class="section active" id="section-intro">
+    <label for="name-input" style="font-weight:500;font-size:0.9rem;margin-bottom:6px;display:block;">Seu nome</label>
+    <input type="text" id="name-input" placeholder="Digite seu nome..." aria-label="Seu nome" autocomplete="off">
+
+    <div style="text-align:center;margin:24px 0;">
+      <label for="file-input" class="preview-label glow-border glow-pulse" id="upload-label" style="margin:0 auto;" aria-label="Fazer upload da sua foto">
+        <span id="upload-icon" style="font-size:1.8rem;display:inline-block;animation:float 3s ease-in-out infinite;">📷</span>
+        <span id="upload-text" style="font-size:0.8rem;color:var(--text-sub);margin-top:4px;">Sua foto</span>
+      </label>
+      <input type="file" id="file-input" accept="image/*" aria-label="Escolher foto">
+      <div id="preview-container" style="display:none;text-align:center;margin:0 auto;"></div>
+    </div>
+
+    <button class="btn-primary" id="btn-continue" disabled style="width:100%;margin-top:8px;" aria-label="Continuar para o quiz">Continuar</button>
+  </div>
+
+  <!-- ===== SECTION 2: QUIZ ===== -->
+  <div class="section" id="section-quiz">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+      <span style="color:var(--text-sub);font-size:0.85rem;" id="quiz-counter">1 / 4</span>
+      <div style="display:flex;gap:6px;" id="quiz-dots">
+        <span class="quiz-progress-dot active"></span>
+        <span class="quiz-progress-dot"></span>
+        <span class="quiz-progress-dot"></span>
+        <span class="quiz-progress-dot"></span>
+      </div>
+    </div>
+
+    <div id="quiz-question-area"></div>
+
+    <div style="display:flex;gap:10px;margin-top:8px;">
+      <button class="btn-secondary" id="btn-quiz-prev" style="flex:1;" aria-label="Pergunta anterior">← Voltar</button>
+      <button class="btn-primary" id="btn-quiz-next" disabled style="flex:2;" aria-label="Próxima pergunta">Próxima →</button>
+    </div>
+    <button class="btn-primary" id="btn-analyze" style="width:100%;margin-top:12px;display:none;" aria-label="Analisar meu estilo">Analisar meu estilo ✨</button>
+  </div>
+
+  <!-- ===== SECTION 3: LOADING ===== -->
+  <div class="section" id="section-loading">
+    <div style="text-align:center;margin-bottom:16px;">
+      <div id="loading-photo-container">
+        <img id="loading-photo" class="loading-pulse" style="border-radius:50%;width:120px;height:120px;object-fit:cover;display:none;margin:0 auto;" alt="Sua foto">
+      </div>
+    </div>
+    <p id="loading-message" style="text-align:center;color:var(--text-sub);font-size:0.95rem;margin:16px 0 20px;min-height:1.4em;">🔍 Lendo suas características... <span id="loading-dots" style="display:inline-block;animation:dotsPulse 1.2s ease-in-out infinite;">.</span></p>
+    <div class="progress-track" style="margin-bottom:8px;" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-fill progress-shimmer" id="loading-bar" style="width:0%;"></div>
+    </div>
+    <p style="text-align:center;font-size:0.8rem;color:var(--text-sub);" id="loading-percent">0%</p>
+  </div>
+
+  <!-- ===== SECTION 4: RESULT ===== -->
+  <div class="section" id="section-result">
+    <div style="text-align:center;margin-bottom:16px;">
+      <p style="font-size:1.5rem;margin:0;">🎉</p>
+      <h3 style="font-weight:600;margin:4px 0 2px;font-size:1.2rem;" id="result-greeting"></h3>
+      <p style="color:var(--text-sub);font-size:0.85rem;margin:0;">Aqui está sua análise completa</p>
+    </div>
+    <div id="result-topics"></div>
+    <button class="btn-secondary" id="btn-restart" style="width:100%;margin-top:16px;" aria-label="Analisar novamente">Analisar novamente ↻</button>
+  </div>
+</div>
+
+<script src="assets/js/app.js"></script>
+</body>
+</html>
