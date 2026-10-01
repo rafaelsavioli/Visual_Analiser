@@ -1,10 +1,10 @@
 :root {
   --bg-main: #FAF8F5;
   --card-bg: #FFFFFF;
-  --accent-1: #E8927C;
+  --accent-1: #B85C45;
   --accent-2: #C9A7C2;
   --text-main: #2D2926;
-  --text-sub: #8C7B75;
+  --text-sub: #7A6961;
   --border: #EDE8E3;
   --result-bg: #F9F2EE;
   --quiz-active: #E8927C20;
@@ -73,7 +73,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; }
   transition: all 0.3s ease;
   font-family: 'DM Sans', sans-serif;
 }
-.btn-primary:hover { background: #d97a63; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(232,146,124,0.3); }
+.btn-primary:hover { background: #A14E39; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(184,92,69,0.3); }
 .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: none; }
 .btn-secondary {
   background: transparent;
@@ -236,7 +236,7 @@ input[type="text"] {
   outline: none;
 }
 input[type="text"]:focus { border-color: var(--accent-1); box-shadow: 0 0 0 3px rgba(232,146,124,0.12); }
-input[type="text"]::placeholder { color: var(--text-sub); opacity: 0.6; }
+input[type="text"]::placeholder { color: var(--text-sub); opacity: 0.85; }
 
 .section-hidden {
   display: none !important;
